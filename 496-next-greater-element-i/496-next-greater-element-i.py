@@ -11,7 +11,7 @@ class Solution:
          4. iterate over nums1 and check if the value is present in hash
             if yes; then pop its next bigger else add -1 
             
-            O(n) T | O(1) S
+            O(n) T | O(n) S
         '''
         mapping,stack = {},[]        
         # build hashmap with key= number, val = nextbigger 
