@@ -8,25 +8,19 @@ class Solution:
         # if height < min; then min - height
         
         # ans =       [0, 2, 4, 1, 2, 0]
-        maxes = [0]* len(height)
-        leftMax = 0
+        
+        leftMax = [0]*len(height)
+        rightMax = [0]*len(height)
+        result = 0
         for i in range(len(height)):
-            current_height = height[i]
-            maxes[i] = leftMax # savind for right max compare
-            leftMax = max(leftMax, current_height)
-            
-        rightMax = 0
-        for i in reversed(range(len(height))):
-            current_height = height[i]
-            min_height = min(rightMax, maxes[i])
-            
-            if current_height < min_height:
-                maxes[i] = min_height - current_height                                 
-            else:
-                maxes[i] = 0
-            rightMax = max(rightMax, current_height)
+            leftMax[i] = max(leftMax[i-1], height[i])
+    
+        for i in reversed(range(len(height)-1)): # 4-->0
+            rightMax[i] = max(rightMax[i+1], height[i+1])
         
-        return sum(maxes)
-        
-        
-        
+        for i in range(len(height)):
+            minHeight = min(leftMax[i], rightMax[i])
+            if height[i] < minHeight:
+                result += minHeight - height[i]
+        return result
+                
