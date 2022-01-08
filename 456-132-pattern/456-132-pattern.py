@@ -29,7 +29,7 @@ class Solution:
             min_nums.append(min(min_nums[-1], nums[i]))
         
         stack = []
-        # for i in range(len(nums)-1,-1,-1):
+
         for i in reversed(range(len(nums))):
             # 4
             if nums[i] > min_nums[i]:
