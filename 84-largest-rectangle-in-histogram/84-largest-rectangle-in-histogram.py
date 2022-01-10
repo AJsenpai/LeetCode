@@ -12,6 +12,9 @@ class Solution:
         ## 4. if there are still elements left in stack that they may be a potential
         ##    candidate for max_area; so compute the max area for remaining element
         ## 5. return the max area
+        
+        ## O(n) T | O(n) S
+        
         stack = [] # pair (index, height)
         max_area = 0
         for current_index, current_height in enumerate(heights):
