@@ -24,6 +24,8 @@ class Solution:
                 if match == len(word_count):
                     result.append(start)
                 
+                # before sliding widnow if the left_char
+                # is a part of pattern put it back and recude the match
                 left_char = s[start]
                 if left_char in word_count:
                     if word_count[left_char] == 0:
