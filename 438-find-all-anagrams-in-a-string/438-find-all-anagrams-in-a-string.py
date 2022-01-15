@@ -21,7 +21,7 @@ class Solution:
             
             if (end-start+1) == len(p):
                 # answer
-                if match == len(set(p)):
+                if match == len(word_count):
                     result.append(start)
                 
                 left_char = s[start]
