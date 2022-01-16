@@ -15,7 +15,7 @@ class Solution:
             if end-start+1 <= max_count+k:
                 max_length = max(max_length, end-start + 1)
             
-            if end-start+1 > max_count + k:
+            while end-start+1 > max_count + k:
                 left_char = s[start]
                 char_count[left_char]  -= 1
                 if char_count[left_char]==0:
