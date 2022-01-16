@@ -18,6 +18,8 @@ class Solution:
             if end-start+1 > max_count + k:
                 left_char = s[start]
                 char_count[left_char]  -= 1
+                if char_count[left_char]==0:
+                    del char_count[left_char]
                 start += 1                        
             end+= 1
         return max_length
