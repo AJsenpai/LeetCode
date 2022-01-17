@@ -1,5 +1,14 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
+        # example [4,5,6,7,0,1,2]
+        # find minimum element index 
+        # array on both sides of minimum index are sorted left half , right half
+        # if the target <= rightmost 
+        #       search in right half
+        # if target > rightmost:
+        #   search in left half
+        # do normal binary search once the left or right half is choosen
+        
         minimum_index= self.findMinimum(nums)
         start,end,right = 0,len(nums)-1,len(nums)-1
         if target<=nums[right]:
