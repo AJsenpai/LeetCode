@@ -1,5 +1,8 @@
 class Solution:
     def findMin(self, a: List[int]) -> int:
+        if len(a)==1:
+            return a[0]
+        
         start,end = 0, len(a)-1
         while start<end: # change
             mid = start + (end-start)//2
