@@ -1,7 +1,7 @@
 class Solution:
     def search(self, a: List[int], target: int) -> bool:
-        if len(a)==1:
-             return target==a[0]
+        # if len(a)==1:
+        #      return target==a[0]
             
             
         start,end = 0,len(a)-1
