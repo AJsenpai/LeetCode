@@ -5,7 +5,7 @@ class Solution:
         
         start = max(a)
         end = sum(a)
-        result  = float('inf')
+        result  = -1
         while start<=end:
             mid = (start +end)//2 # max_sum
             if self.isValid(a,m,mid):
@@ -14,7 +14,6 @@ class Solution:
             else:
                 start = mid + 1
         
-        # return sum(a) - result
         return result
     
     def isValid(self,arr,m,max_sum):
