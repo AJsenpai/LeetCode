@@ -10,18 +10,19 @@ class Solution:
         
         while start<=end:
             mid = start + (end-start)//2            
-            square = (mid*mid)
             
-            if  square > x:
+            square = (mid*mid)
+            ceil_square = ((mid+1)*(mid+1))
+            
+            if square <= x and ceil_square > x:
+                return mid
+            
+            elif  square > x:
                 end = mid - 1
             
-            elif square < x:
-                ceil_square = ((mid+1)*(mid+1))
-                if ceil_square > x: # edge case/ we need floor
-                    return mid
+            elif square < x:                            
                 start = mid +1
-            else:
-                return mid
+            
         return -1
     
                     
