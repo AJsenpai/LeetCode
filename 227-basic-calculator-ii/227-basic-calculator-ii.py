@@ -13,18 +13,15 @@ class Solution:
                     curr_num = curr_num * 10 + int(exp[i])
 
                 if char in all_operators or i==len(exp)-1:
-                    self.process(operator, curr_num, stack)
+                    if operator == '+':
+                        stack.append(curr_num)
+                    elif operator == '-':
+                        stack.append(-curr_num)
+                    elif operator == '*':
+                        stack.append(stack.pop() * curr_num)
+                    elif operator == '/':
+                        stack.append(int(stack.pop() / curr_num)) # edge case // won't work
+
                     curr_num = 0
                     operator =char # current_operator
             return sum(stack)
-    
-    def process(self, operator, num , stack):
-            if operator == '+':
-                stack.append(num)
-            elif operator == '-':
-                stack.append(-num)
-            elif operator == '*':
-                stack.append(stack.pop() * num)
-            elif operator == '/':
-                stack.append(int(stack.pop() / num)) # edge case // won't work        
-        
