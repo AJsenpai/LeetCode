@@ -1,5 +1,6 @@
 class Solution:
     def firstMissingPositive(self, a: List[int]) -> int:
+        # cyclic sort
         i,n = 0,len(a)
         
         while i<len(a):
