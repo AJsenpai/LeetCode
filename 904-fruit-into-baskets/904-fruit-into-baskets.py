@@ -1,23 +1,28 @@
 class Solution:
-    def totalFruit(self, fruits: List[int]) -> int:
+    def totalFruit(self, a: List[int]) -> int:
         # same as longest substring with k distinct char here k = 2
         start,end = 0,0
-        char_count = {}
+        hashmap = {}
         max_length = 0
-        while end<len(fruits):
-            right_char=  fruits[end]
-            if right_char not in char_count:
-                char_count[right_char] = 0
-            char_count[right_char] += 1
+        
+        while end < len(a):
             
-            if len(char_count) <= 2:
+            right_char = a[end]
+            if right_char not in hashmap:
+                hashmap[right_char]=0
+            hashmap[right_char] += 1
+            
+            if len(hashmap)<=2:
                 max_length = max(max_length, end-start+1)
             
-            while len(char_count) > 2:
-                left_char = fruits[start]
-                char_count[left_char] -= 1
-                if char_count[left_char] == 0:
-                    del char_count[left_char]
-                start += 1
+            if len(hashmap)>2:
+                while len(hashmap)>2:
+                    left_char = a[start]
+                    hashmap[left_char] -= 1
+                    
+                    if hashmap[left_char]==0:
+                        del hashmap[left_char]
+                    start +=1
             end += 1
         return max_length
+                        
