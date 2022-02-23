@@ -12,7 +12,7 @@ class Solution:
                 hashmap[right_char]=0
             hashmap[right_char] += 1
             
-            if len(hashmap)<=2:
+            if len(hashmap)<=2: # ** <=
                 max_length = max(max_length, end-start+1)
             
             if len(hashmap)>2:
