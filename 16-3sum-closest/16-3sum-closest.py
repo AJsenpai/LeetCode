@@ -1,5 +1,6 @@
 class Solution:
     def threeSumClosest(self, a: List[int], target: int) -> int:
+        # edge case
         if len(a) <3:
             return
         
@@ -15,6 +16,7 @@ class Solution:
                 if curr_sum==target:
                     return curr_sum
                 
+                # keep track of closest
                 if abs(curr_sum - target)<abs(result-target):
                     result = curr_sum
                 
@@ -25,13 +27,5 @@ class Solution:
                     
         return result 
     
-    def findClosest(self, result,curr_sum,target):
-        if result==0:
-            return curr_sum
-        
-        if abs(target-result) < abs(target - curr_sum):
-            return result
-        else:
-            return curr_sum
         
         
