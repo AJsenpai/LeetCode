@@ -13,10 +13,10 @@ class Solution:
             if p1<0 and p2<0:
                 return True
             
-            if p1<0 or p2<0:
+            elif p1<0 or p2<0:
                 return False
             
-            if s[p1] != t[p2]:
+            elif s[p1] != t[p2]:
                 return False
             
             index1 = p1 -1
