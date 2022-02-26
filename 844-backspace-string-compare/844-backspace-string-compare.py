@@ -1,6 +1,5 @@
 class Solution:
     def backspaceCompare(self, s: str, t: str) -> bool:
-        # Two Pointers
         
         index1 = len(s)-1
         index2 = len(t)-1
@@ -13,10 +12,10 @@ class Solution:
             if p1<0 and p2<0:
                 return True
             
-            elif p1<0 or p2<0:
+            if p1<0 or p2<0:
                 return False
             
-            elif s[p1] != t[p2]:
+            if s[p1] != t[p2]:
                 return False
             
             index1 = p1 -1
