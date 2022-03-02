@@ -20,3 +20,29 @@ class Solution:
             product[i] = prefix[i]*postfix[i]
         
         return product
+    
+        # O(N) T | O(1) S
+        # using prefix and postfix pointers instead of arrays
+        
+        n = len(nums)
+        product = [1]*n
+        
+        prefix = 1                
+        for i in range(n):
+            # first add then calculate next prefix product
+            product[i] = prefix
+            prefix *= a[i]
+        
+        postfix = 1
+        for i in reversed(range(n)):
+            product[i] *= postfix
+            postfix *= a[i]
+        
+        return product
+            
+            
+        
+        
+        
+        
+        
