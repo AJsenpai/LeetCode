@@ -2,8 +2,8 @@ class Solution:
     def trap(self, height: List[int]) -> int:
         '''
         Two ways to solve this problem 
-        1. using stack : O(N) T | O(N)  S     (readable)
-        2. Using 2 Pointers : O(N) T | O(1) S (confusing)
+        1. using stack : O(N) T | O(N)  S     
+        2. Using 2 Pointers : O(N) T | O(1) S 
         '''
         
         ## using stack : 
