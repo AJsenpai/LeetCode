@@ -8,7 +8,7 @@ class Solution:
                 length = 1                
                 
                 # check if incresing sequence is present in hashset
-                while (n +length) in nums_set:
+                while (n + length) in nums_set:
                     length += 1
                     
                 longest = max(longest,length)
