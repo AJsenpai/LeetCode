@@ -1,17 +1,17 @@
 class Solution:
-    def longestConsecutive(self, a: List[int]) -> int:
-        hashset = set(a)
+    def longestConsecutive(self, nums: List[int]) -> int:
+        nums_set = set(nums)
         
         longest = 0
-        for nums in a:
-            if nums-1 not in hashset:
-                count = 1
+        for n in nums:
+            if (n - 1) not in nums_set: # new sequence
+                length = 1                
                 
-                n = nums +1
-                while n in hashset:
-                    count += 1
-                    n += 1
-                longest = max(longest,count)
+                # check if incresing sequence is present in hashset
+                while (n +length) in nums_set:
+                    length += 1
+                    
+                longest = max(longest,length)
         return longest
                 
 
