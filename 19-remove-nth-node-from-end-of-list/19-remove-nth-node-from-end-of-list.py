@@ -19,7 +19,7 @@ class Solution:
             head = head.next
             return head
         
-        while fast.next:
+        while fast and fast.next:
             slow = slow.next
             fast =fast.next
         
