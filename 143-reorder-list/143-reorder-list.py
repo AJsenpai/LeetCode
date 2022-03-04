@@ -21,7 +21,7 @@ class Solution:
             second_half.next = first_half
             second_half = temp
         
-        # if first_half:
+        # if first_half: # already pointing to null, not needed
         #     first_half.next = None
         
         
