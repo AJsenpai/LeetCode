@@ -1,36 +1,80 @@
 class Solution:
-    def largestRectangleArea(self, heights: List[int]) -> int:
-        ## Logic
-        ## 1. use stack to store the height and index 
-        ## 2. if the heights are increasing order in other words
-        ##    if the current height is greater than height on stack.top()
-        ##    then append the current height and current_index 
-        ## 3. if the height is smaller then stack.top then pop the top height
-        ##    and compute its area , since the popped height is bigger then 
-        ##    current height that current height can be exteneded backwards 
-        ##    so we update the current_ids to popped index before pushing it to stack
-        ## 4. if there are still elements left in stack that they may be a potential
-        ##    candidate for max_area; so compute the max area for remaining element
-        ## 5. return the max area
-        
-        ## O(n) T | O(n) S
-        
-        stack = [] # pair (index, height)
-        max_area = 0
-        for current_index, current_height in enumerate(heights):
-            start = current_index
-            while stack and stack[-1][1] > current_height:
-                prev_index, prev_height = stack.pop()
-                max_area = max(max_area, prev_height * (current_index - prev_index))
-                start = prev_index
-                
-            stack.append((start, current_height))
-            
-        # remaining valus in stack could be potenetial max_area
-        last_idx = len(heights)
-        for curr_idx, height in stack:
-            max_area = max(max_area, height*(last_idx - curr_idx))
-        return max_area
+    def largestRectangleArea(self, a: List[int]) -> int:   
+#         # Brute Force
+#         # O(n^2) T | O(1) S
+#         # The approach is to find the right smaller and left smaller element and
+#         # find the largest Rectangle area in Histogram.
+
+#             max_area = 0
+#             for i in range(len(a)):
+#                 min_height = float("inf")
+#                 for j in range(i, len(a)):
+#                     min_height = min(min_height, a[j])
+#             return max_area
+
+            right = self.nearestSmallerRight(a)
+            left = self.nearestSmallerLeft(a)
+
+            width = [None] * len(a)
+            for i in range(len(a)):
+                width[i] = right[i] - left[i] - 1
+
+            max_area = float("-inf")
+            for i in range(len(a)):
+                current_area = a[i] * width[i]
+                max_area = max(max_area, current_area)
+
+            return max_area
+
+        # helper code
+    def nearestSmallerRight(self, a):
+        pseudoIndex = len(a)
+        stack = []  # paid [NSR, NSRindex]
+        result = []
+        for i in reversed(range(len(a))):
+            if not stack:
+                result.append(pseudoIndex)
+
+            elif stack and stack[-1][0] < a[i]:
+                result.append(stack[-1][1])
+
+            elif stack and stack[-1][0] >= a[i]:
+                while stack and stack[-1][0] >= a[i]:
+                    stack.pop()
+                if not stack:
+                    result.append(pseudoIndex)
+                else:
+                    result.append(stack[-1][1])
+
+            stack.append([a[i], i])
+
+        result.reverse()
+        return result
+
+
+    def nearestSmallerLeft(self, a):
+        pseudoIndex = -1
+        stack = []
+        result = []
+        for i in range(len(a)):
+            if not stack:
+                result.append(pseudoIndex)
+
+            elif stack and stack[-1][0] < a[i]:
+                result.append(stack[-1][1])
+
+            elif stack and stack[-1][0] >= a[i]:
+                while stack and stack[-1][0] >= a[i]:
+                    stack.pop()
+                if not stack:
+                    result.append(-1)
+                else:
+                    result.append(stack[-1][1])
+
+            stack.append([a[i], i])
+
+        return result
+
                            
 
         
