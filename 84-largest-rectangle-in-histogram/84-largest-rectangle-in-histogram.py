@@ -26,7 +26,7 @@ class Solution:
 
             return max_area
 
-        # helper code
+    # helper code
     def nearestSmallerRight(self, a):
         pseudoIndex = len(a)
         stack = []  # paid [NSR, NSRindex]
