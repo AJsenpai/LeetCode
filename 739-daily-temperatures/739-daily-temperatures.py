@@ -1,13 +1,41 @@
 class Solution:
-    def dailyTemperatures(self, temp: List[int]) -> List[int]:       
-        result = [0]*len(temp)
-        stack = [] # old day indexes with decreasing temp, monotonic stack
-        
-        for curr_day, curr_temp in enumerate(temp):
-            while stack and temp[stack[-1]] < curr_temp:
-                previous_day = stack.pop()
-                result[previous_day] = curr_day - previous_day
-            stack.append(curr_day)
+    def dailyTemperatures(self, a: List[int]) -> List[int]:       
+            ngr = self.ngr_dt(a)
+
+            result = []
+            for i in reversed(range(len(a))):
+                if ngr[i] > 0:
+                    result.append(ngr[i] - i)
+                else:
+                    result.append(0)
+
+            result.reverse()
+            return result
+
+
+    def ngr_dt(self, a):
+        stack = []  # NGR, NGR index
+        result = []
+        for i in reversed(range(len(a))):
+            if not stack:
+                result.append(-1)
+
+            elif stack[-1][0] > a[i]:
+                result.append(stack[-1][1])
+
+            elif stack[-1][0] <= a[i]:
+                while stack and stack[-1][0] <= a[i]:
+                    stack.pop()
+
+                if not stack:
+                    result.append(-1)
+                else:
+                    result.append(stack[-1][1])
+
+            stack.append([a[i], i])
+
+        result.reverse()
         return result
+
         
         
