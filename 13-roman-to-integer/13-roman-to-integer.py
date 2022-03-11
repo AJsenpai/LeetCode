@@ -5,8 +5,8 @@ class Solution:
         result= 0
         prev = None
         
-        # logic: if previous number is smaller than the current 
-        # number than we need to subtract previous from current
+        # larger to smaller - add number
+        # smaller before larger number - subtract smaller
         # Ex: IV, 1+5 = 6 but correct ans is 4. prev = 1, curr = 5
         # -1 + 5 = 4
         
