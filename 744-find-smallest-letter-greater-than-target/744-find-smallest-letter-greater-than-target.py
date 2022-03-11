@@ -16,7 +16,4 @@ class Solution:
                 result = a[mid]
                 end = mid-1
                 
-        # once the pointer cross each other 
-        # start will always points to number grater than target
-        # end will always points to number smaller than target
         return result
