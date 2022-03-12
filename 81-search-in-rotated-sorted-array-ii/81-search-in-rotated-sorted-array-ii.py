@@ -12,7 +12,8 @@ class Solution:
             if a[mid] == target:
                 return True
             
-            if a[start] == a[mid] and a[end]==a[mid]:
+            # if's are mutually inclusive from here
+            if a[start] == a[mid] and a[end]==a[mid]: 
                 start+=1
                 end -= 1
             
