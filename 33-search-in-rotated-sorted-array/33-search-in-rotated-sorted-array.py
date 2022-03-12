@@ -9,12 +9,14 @@ class Solution:
             
             # check which part is sorted in ascending order
             # compare the target with sorted range
+            
             if a[start] <= a[mid]: # left is sorted ascending 
                 if target >= a[start] and target < a[mid]: 
                     # target is in the left range
                     end = mid - 1
                 else: # target in unsorted range
                     start = mid +1
+            
             else: # right is sorted
                 if target <= a[end] and target > a[mid]:
                     start = mid + 1
@@ -24,6 +26,6 @@ class Solution:
                     
                 
             
+    
+    
                 
-            
-        
