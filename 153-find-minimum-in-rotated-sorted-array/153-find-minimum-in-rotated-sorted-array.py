@@ -12,11 +12,11 @@ class Solution:
             if mid> start and a[mid-1] > a[mid]:
                 return a[mid]
             
-            elif mid< end and a[mid] > a[mid+1]:
+            if mid< end and a[mid] > a[mid+1]:
                 return a[mid +1]
             
             # go to unsorted part
-            elif a[start] < a[mid]:
+            if a[start] < a[mid]:
                 start = mid+1
             
             else:
