@@ -1,6 +1,5 @@
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        memo = {}
         for r in range(len(board)):
             for c in range(len(board[0])):
                 if self.solve(board,r,c,word,0): # DFS
@@ -11,7 +10,7 @@ class Solution:
     
     
     def solve(self,board,row,col, word,i):
-        if i == len(word):
+        if i == len(word): # early check
             return True
         
         if self.oob(board,row,col) or board[row][col]!=word[i]:
