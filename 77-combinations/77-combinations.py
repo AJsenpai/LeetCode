@@ -5,7 +5,7 @@ class Solution:
         def backtrack(remain,comb,nex):
 			# solution found
             if remain==0:
-                sol.append(comb.copy())
+                sol.append(comb[:])
             else:
 				# iterate through all possible candidates
                 for i in range(nex,n+1):
