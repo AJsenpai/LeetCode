@@ -3,21 +3,25 @@ class Solution:
         nums.sort()
         result = []
         op = []
-        self.solve(nums,0,op,result)
+        self.solve(nums,0,len(nums),op,result)
         return result
         
-    def solve(self, ip,i,output,result):
-        if i==len(ip):
-            result.append(output[:])
-            return 
+    def solve(self,a,start,end,output,result):
+        result.append(output[:])
         
-        # include
-        output.append(ip[i])
-        self.solve(ip,i+1,output,result)
-        output.pop()
+        for i in range(start,end):
+            
+            # dont include
+            if i>start and a[i-1]==a[i]:
+                continue
+            
+            # include
+            output.append(a[i])
+            self.solve(a,i+1,end,output,result)
+            output.pop() # backtrack
         
-        # dont include
-        while i+1 < len(ip) and ip[i]==ip[i+1]:
-            i +=1
+
         
-        self.solve(ip,i+1,output,result)
+
+        
+        
