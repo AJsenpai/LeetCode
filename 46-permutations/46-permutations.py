@@ -1,36 +1,19 @@
 class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
-        def backtrack(start, end):
-            if start == end:
-                ans.append(nums[:])
-            for i in range(start, end):
-                nums[start], nums[i] = nums[i], nums[start]
-                backtrack(start+1, end)
-                nums[start], nums[i] = nums[i], nums[start]
-                
-        ans = []
-        backtrack(0, len(nums))
-        return ans
-#         # decsion tree - every node gives the result
-#         # as we move down pop the element from start and add it again at the end
+    def permute(self, nums: List[int]) -> List[List[int]]:    
+        result = []
+        self.solve(nums,0,len(nums),result)
+        return result
+    
+    def solve(self,a,start,end,result):
+        if start == end:            
+            result.append(a[:])
+            return
         
-#         result = []
+        for i in range(start,end):
+            self.swap(a,start,i)
+            self.solve(a,start+1,end,result) # v.imp
+            self.swap(a,start,i) # backtrack
         
-#         # base case
-#         if len(ip)==1:
-#             return [ip[:]]
-            
-#         for  i in range(len(ip)):
-#             n = ip.pop(0)
-            
-#             permutations = self.permute(ip) # recursive call
-            
-#             # add back the popped number at the end
-#             for p in permutations:
-#                 p.append(n)
-            
-#             # add list of permutations to result
-#             result.extend(permutations)
-#             ip.append(n)
-#         return result
-                
+    def swap(self,a,i,j):
+        a[i],a[j] = a[j],a[i]
+        
