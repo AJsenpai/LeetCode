@@ -9,10 +9,13 @@ class Solution:
     def solve(self,a,start,end,output,result,target):
         if target==0:
             result.append(output[:])
+            return
         
         elif target>0:
             for  i in range(start,end):
                 output.append(a[i])
-                self.solve(a,i,end,output,result,target-a[i])
+                
+                # here we are passing i cuz can we used unlimited times
+                self.solve(a,i,end,output,result,target-a[i]) 
                 output.pop()
         
