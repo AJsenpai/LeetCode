@@ -1,5 +1,6 @@
 class Solution:
     def rob(self, a: List[int]) -> int:
+        # fibonacci,,
         fib1,fib2 = 0,0
         
         for n in a:
