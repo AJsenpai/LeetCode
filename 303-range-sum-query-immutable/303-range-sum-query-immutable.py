@@ -1,14 +1,17 @@
 class NumArray:
 
     def __init__(self, nums: List[int]):
-        self.a = [0]
-        for num in nums:
-             self.a += [self.a[-1] + num]
+        
+        # calculating sum of all nums in arr and replacing them with presum
+        
+        self.pre_sum = nums        
+        for i in range(1,len(nums)):
+            self.pre_sum[i] += self.pre_sum[i-1]
         
         
 
     def sumRange(self, left: int, right: int) -> int:        
-        return self.a[right+1] - self.a[left]
+        return self.pre_sum[right] - (self.pre_sum[left-1] if left>0 else 0)
 
             
     
