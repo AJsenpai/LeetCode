@@ -1,11 +1,10 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
-        # start from bottom row, build solution from bottom to top row
-        #      10 6 3 1   #  adding values of positive diagonals /
-        #       4 3 2 1 
-        # 1 1 1 1 1 1 1 
+        # 1 1 1 1 1 1 1         
+        # 1 2 3 4        #  adding values of negative diagonals /
+        # 1 3 6 10 ...
         
-        
+                
         t = [[1]*n for row in range(m)]
         
         for  i in range(1,m):
