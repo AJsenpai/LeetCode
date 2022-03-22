@@ -6,20 +6,14 @@ class Solution:
         result = ''
         
         for i in range(len(s)):
-            # even
-            temp = self.is_palindrome(s,i,i)
-            if len(temp) > len(result):
-                result = temp
-            
-            temp = self.is_palindrome(s,i,i+1)
-            if len(temp)>len(result):
-                result = temp
+
+            even = self.is_palindrome(s,i,i)
+            odd = self.is_palindrome(s,i,i+1)            
+            result = max(result,even,odd,key = len)
+        
         return result
             
-#             current_longest = max(current_longest, odd, even, key=lambda x : x[1]-x[0])     
-#             longest = max(longest, current_longest, key=lambda x: x[1]-x[0])
-            
-#         return s[longest[0]: longest[1]]
+
 
     
     def is_palindrome(self,s,start,end):
