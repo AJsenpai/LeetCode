@@ -9,6 +9,7 @@ class Solution:
                     t[i] = t[i+len(word)]
                 if t[i]:
                     break
+        print(t)
         return t[0]
         
         
