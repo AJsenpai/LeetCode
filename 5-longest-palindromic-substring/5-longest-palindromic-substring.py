@@ -14,7 +14,7 @@ class Solution:
     
     
     def is_palindrome(self,s,start,end):
-        while start>=0 and end<len(s):
+        while start>=0 and end<=len(s)-1:
             if s[start]!=s[end]:
                 break
             start -=1
