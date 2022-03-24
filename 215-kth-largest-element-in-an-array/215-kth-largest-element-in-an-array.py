@@ -1,4 +1,5 @@
 from heapq import *
+import random
 class Solution:
     def findKthLargest(self, a: List[int], k: int) -> int:
         k = k-1
@@ -18,6 +19,10 @@ class Solution:
     def partition(self, a,low,high):
         if low==high:
             return low
+        
+        # extra two lines for random index
+        pivotIdx = random.randint(low,high)
+        self.swap(a,pivotIdx,high)
         
         pivot = a[high]
         
