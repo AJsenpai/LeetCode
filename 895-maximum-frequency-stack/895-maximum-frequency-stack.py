@@ -3,14 +3,14 @@ class FreqStack:
     def __init__(self):
         self.maxheap = []
         self.hashmap = {}
-        self.count = 0
+        self.idx = 0 # second priority if count is eqal
 
     def push(self, val: int) -> None:
         if val not in self.hashmap:
             self.hashmap[val] = 0
         self.hashmap[val]+=1          
-        heappush(self.maxheap, (-self.hashmap[val], -self.count, val))        
-        self.count += 1
+        heappush(self.maxheap, (-self.hashmap[val], -self.idx, val))        
+        self.idx += 1
         
         
 
