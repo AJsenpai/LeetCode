@@ -30,7 +30,7 @@ class Solution:
                 heappush(maxheap, (count,task))
             
             if maxheap:
-                # if n is not 0 after processing heap then that it its idle time
+                # if total_task is not 0 after processing heap then that is its idle time
                 interval_count += total_task
         return interval_count
             
