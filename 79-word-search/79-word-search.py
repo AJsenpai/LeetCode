@@ -18,7 +18,7 @@ class Solution:
                 
                                                        
         char = board[row][col] # found the char
-        board[row][col] = '#' # temp mark '#' avoid visiting again
+        board[row][col] = '#' # temp mark '#' to avoid visiting again
         
         result =  (self.solve(board, row-1,col,word,i+1) or
             self.solve(board, row+1,col,word,i+1) or
