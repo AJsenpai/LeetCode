@@ -1,5 +1,6 @@
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        # binary search modification
         # start from top right corner
         # we can either go left or go down
         
