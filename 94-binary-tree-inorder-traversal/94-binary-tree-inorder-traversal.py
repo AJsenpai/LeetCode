@@ -13,6 +13,7 @@ class Solution:
         return self.solve(root, output)
     
     def solve(self,node,output):
+        # Inorder -  left root right
         if node.left:
             self.solve(node.left, output)        
         
