@@ -19,7 +19,8 @@ class Solution:
         
         # Go Left: left boundary remain same and right boundary becomes root/parent
         # Go Right: right boundary remain same and left boundary becomes root/parent
-        return self.isBst(node.left, left, node.val) and self.isBst(node.right,node.val, right)
+        return self.isBst(node.left, left, node.val) and \
+               self.isBst(node.right,node.val, right)
         
         
         
