@@ -15,10 +15,10 @@ class Solution:
             elif root1 is None or root2 is None:
                 return False
             
-            if root1.val ==root2.val:
-                # return False
+            if root1.val !=root2.val:
+                return False
             
-                return checkTree(root1.left, root2.left) and checkTree(root1.right, root2.right)
+            return checkTree(root1.left, root2.left) and checkTree(root1.right, root2.right)
         
         def dfs(s,t):
             if not s:
