@@ -9,27 +9,32 @@ class Solution:
         second_half = self.reverse(mid)
         
         first_half = head
+        
         while first_half and second_half:
-            if first_half.val !=second_half.val:
+            if first_half.val != second_half.val:
                 return False
+            
             first_half = first_half.next
             second_half = second_half.next
         return True
-
-    def reverse(self,head):
-        previous,current = None,head
-        while current:
-            next_ = current.next
-            current.next = previous
-            
-            previous = current
-            current = next_
-        return previous
     
     def getMid(self,head):
-        slow=fast= head
+        slow = fast = head
         while fast.next and fast.next.next:
-            fast = fast.next.next
             slow = slow.next
+            fast = fast.next.next
         return slow
+    
+    def reverse(self,head):
+        prev, curr = None, head
+        
+        while curr:
+            next_node = curr.next
+            curr.next = prev
+            
+            prev = curr
+            curr = next_node
+        
+        return prev
+    
         
