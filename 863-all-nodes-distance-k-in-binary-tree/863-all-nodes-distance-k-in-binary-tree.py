@@ -23,11 +23,9 @@ class Solution:
                 graph[node].append(node.right)
                 dfs(node.right, node)
         
-        dfs(root, None)
         
-        # BFS
-        result = []
-        visited = {target}
+        
+        # BFS        
         def bfs(node,k):
             if k==0:
                 result.append(node.val)
@@ -36,6 +34,10 @@ class Solution:
                 for child in graph[node]:
                     if child not in visited:
                         bfs(child, k-1)
+        
+        dfs(root, None)
+        result = []
+        visited = {target}        
         bfs(target, k)
         
         return result
