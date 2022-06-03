@@ -9,7 +9,7 @@ class Solution:
         if not root:
             return 
         
-        root.left,root.right = root.right,root.left
+        root.left,root.right = root.right,root.left # swap
                 
         self.invertTree(root.left)
         self.invertTree(root.right)
