@@ -11,7 +11,7 @@ class Solution:
         
         for i in range(m_row):
             for j in range(m_col):
-                if len(reshaped[-1])==c:
+                if len(reshaped[-1])==c: # **
                     reshaped.append([])
                 reshaped[-1].append(m[i][j])
         return reshaped
