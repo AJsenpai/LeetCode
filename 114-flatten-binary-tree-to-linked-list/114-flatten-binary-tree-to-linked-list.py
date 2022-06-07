@@ -13,7 +13,7 @@ class Solution:
         Do not return anything, modify root in-place instead.
         """
         # root,left,right        
-        
+        # reverse preorder traversal
         if not root:
             return 
         
@@ -21,8 +21,8 @@ class Solution:
         self.flatten(root.left)
         
         
-        root.left = None
         root.right = self.prev
+        root.left = None        
         self.prev = root
             
         
