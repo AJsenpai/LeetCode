@@ -6,7 +6,7 @@ class Solution:
         
         n = len(a)
         i = 0 
-        j = n-1-3  # N - 1 is the last element and we want to exlude 3 elements
+        j = n-1-3  # N - 1 is the last element and we want to exlude 3 elements thus n-1-3
         
         while i<=j and j<n:
             result = min(result, a[j]-a[i]) 
