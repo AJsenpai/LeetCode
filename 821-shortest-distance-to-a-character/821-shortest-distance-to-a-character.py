@@ -14,7 +14,7 @@ class Solution:
         for i,char in enumerate(s):
             if char==c:
                 left_char_idx = i
-            result.append(i-left_char_idx)
+            result.append(i-left_char_idx) # distance of c from curr index
         
         right_char_idx = float('inf')
         for i in reversed(range(len(s))):
