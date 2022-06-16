@@ -6,7 +6,10 @@ class Solution:
             return 
         if len(s)==1 and s==c:
             return 0
-            
+        
+        #-------------> check e on left side of each char
+        # <-----------  check e on right side of each char
+        
         result = []
         
         left_c_idx = float('-inf')        
