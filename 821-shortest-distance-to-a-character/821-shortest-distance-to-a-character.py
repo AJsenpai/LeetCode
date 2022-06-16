@@ -9,19 +9,19 @@ class Solution:
             
         result = []
         
-        left_char_idx = float('-inf')
+        left_c_idx = float('-inf')
         
         for i,char in enumerate(s):
             if char==c:
-                left_char_idx = i
-            result.append(i-left_char_idx) # distance of c from curr index
+                left_c_idx = i
+            result.append(i-left_c_idx) # distance of c from curr index
         
-        right_char_idx = float('inf')
+        right_c_idx = float('inf')
         for i in reversed(range(len(s))):
             char = s[i]
             if char==c:
-                right_char_idx = i
-            result[i] = min(result[i], right_char_idx - i)
+                right_c_idx = i
+            result[i] = min(result[i], right_c_idx - i)
         
         return result
             
