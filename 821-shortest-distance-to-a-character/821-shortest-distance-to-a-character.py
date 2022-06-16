@@ -9,12 +9,12 @@ class Solution:
             
         result = []
         
-        left_c_idx = float('-inf')
-        
+        left_c_idx = float('-inf')        
         for i,char in enumerate(s):
             if char==c:
                 left_c_idx = i
             result.append(i-left_c_idx) # distance of c from curr index
+        
         
         right_c_idx = float('inf')
         for i in reversed(range(len(s))):
