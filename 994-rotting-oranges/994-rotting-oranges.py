@@ -12,7 +12,7 @@ class Solution:
                     rotten.add((r,c))
         
         mins = 0
-        deltas = [(0,1),(0,-1),(1,0),(-1,0)]
+        deltas = [(0,1),(0,-1),(1,0),(-1,0)] # 4 adjacent directions we can move in
         while fresh:
             mins +=1
             new_rotten = set()
