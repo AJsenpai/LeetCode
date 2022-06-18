@@ -20,6 +20,7 @@ class Solution:
             for _ in range(len(queue)):
                 r,c = queue.popleft()            
                 
+                # mark all the adjacent as rotten if they are fresh
                 for dr,dc in directions:
                     row,col = dr+r, dc+c
                     if (0<=row<ROWS and 0<=col<COLS and grid[row][col]==1): # in bound
