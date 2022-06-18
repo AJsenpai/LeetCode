@@ -2,7 +2,7 @@ class Solution:
     def updateMatrix(self, matrix: List[List[int]]) -> List[List[int]]:
         # BFS
         rows,cols = len(matrix),len(matrix[0])
-        deltas = [(1,0),(-1,0),(0,1),(0,-1)]
+        deltas = [(1,0),(-1,0),(0,1),(0,-1)] # 4 adjacent directions we can move in
             
         queue = deque()            
         max_dist = max(rows,cols)
