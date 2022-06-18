@@ -22,7 +22,7 @@ class Solution:
                 
                 for dr,dc in directions:
                     row,col = dr+r, dc+c
-                    if (0<=row<ROWS and 0<=col<COLS and grid[row][col]==1):
+                    if (0<=row<ROWS and 0<=col<COLS and grid[row][col]==1): # in bound
                         grid[row][col]=2
                         queue.append((row,col))
                         fresh -=1                
