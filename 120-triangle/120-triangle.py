@@ -6,7 +6,7 @@ class Solution:
             return 
         
         # traversing from second last row of triangle to top
-        for row in range(len(triangle)-2,-1,-1):
+        for row in reversed(range(len(triangle)-1)):
             for col in range(len(triangle[row])): # **
                 
                 # compare value with its bottom value of left and right
