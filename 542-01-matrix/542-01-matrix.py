@@ -16,14 +16,17 @@ class Solution:
         
         while queue:
             r,c = queue.popleft()
+            
             for dr,dc in deltas:
-                if (0<=(r+dr) < rows and 
-                    0<= (c+dc) < cols and
-                    matrix[r][c]+1 < matrix[r+dr][c+dc]                    
-                   ):
+                row,col = r+dr,c+dc                
+                if (0<=(row)<rows and 0<=(col)<cols and matrix[r][c]+1 < matrix[row][col]):
                     
-                    matrix[r+dr][c+dc] = matrix[r][c]+1
-                    queue.append((r+dr,c+dc))
+                    matrix[row][col] = matrix[r][c]+1
+                    queue.append((row,col))
         return matrix
                     
+        
                         
+            
+            
+            
