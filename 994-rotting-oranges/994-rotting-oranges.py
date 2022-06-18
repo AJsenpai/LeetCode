@@ -8,11 +8,13 @@ class Solution:
             for c in range(COLS):
                 if grid[r][c]==1:
                     fresh+=1
+                
                 if grid[r][c]==2:
                     queue.append((r,c))
         
         mins = 0
         directions = [(0,1),(0,-1),(1,0),(-1,0)] # 4 adjacent directions we can move in
+        
         while fresh and queue:
             
             for _ in range(len(queue)):
@@ -23,24 +25,8 @@ class Solution:
                     if (0<=row<ROWS and 0<=col<COLS and grid[row][col]==1):
                         grid[row][col]=2
                         queue.append((row,col))
-                        fresh -=1
-                
-            mins +=1
-                        
+                        fresh -=1                
+            mins +=1             
+            
         return mins if fresh==0 else -1
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-                
-                        
             
