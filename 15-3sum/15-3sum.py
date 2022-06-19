@@ -16,6 +16,7 @@ class Solution:
             left,right = i+1, len(a)-1
             
             while left<right:
+                
                 curr_sum = a[i] + a[left] + a[right]
                 
                 if curr_sum==0:
