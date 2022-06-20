@@ -20,7 +20,6 @@ class Solution:
         while x>0:
             new_num = (new_num*10)+ (x%10)
             x = x//10
-        print(new_num,s)
         return new_num == s
     
    
